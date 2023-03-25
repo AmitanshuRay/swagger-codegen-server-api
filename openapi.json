@@ -1,0 +1,180 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Server object REST API",
+    "description": "This is a Java application that provides a REST API with endpoints for searching, creating and deleting \"server\" objects.\nProject developed as part of an assignment by Kaiburr.",
+    "contact": {
+      "email": "amitanshuray@gmail.com"
+    },
+    "version": "1.0.11"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "paths": {
+    "/": {
+      "put": {
+        "summary": "Add a server",
+        "description": "Add a server by JSON",
+        "operationId": "addServer",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/Server"
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      },
+      "get": {
+        "summary": "return all servers",
+        "description": "returns all the server in JSON if no parameter are passed",
+        "operationId": "returnAllServers",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Server"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No server object found"
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "get": {
+        "description": "Returns a server based on ID",
+        "operationId": "returnById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "server ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "server found successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Server"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "server not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a server",
+        "description": "delete a server by ID",
+        "operationId": "deleteById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "server with this id to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "server deleted successfully"
+          },
+          "404": {
+            "description": "server not found"
+          }
+        }
+      }
+    },
+    "/name/{name}": {
+      "get": {
+        "description": "Returns servers based on this string in their name",
+        "operationId": "returnByName",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "description": "server names",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "servers found successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Server"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "no server found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Server": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "requestBodies": {
+      "Server": {
+        "description": "server object",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Server"
+            }
+          }
+        }
+      }
+    }
+  }
+}
