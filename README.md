@@ -17,11 +17,11 @@ Change default port value in application.properties
 ## Installation Guide
 * Clone [swagger-codedgen-server.jar](https://github.com/AmitanshuRay/swagger-codegen-server/blob/master/swagger-codgen-server.jar) file and cd ino that folder
 * Download Java 9 from [here](https://www.oracle.com/in/java/technologies/javase/javase9-archive-downloads.html) and install it
-*Check Java version using 
+* Check Java version using
 
-     $ java --version
+      $ java --version
 
-* Install [mongodb](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/) on your machine
+* Install [mongodb](https://www.mongodb.com/try/download/community) on your machine
 
 ## Usage
 * Start mongodb session on your machine 
