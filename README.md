@@ -49,6 +49,7 @@ Change default port value in application.properties
 
 ## Examples
 ### Put a server
+![Screenshot](https://github.com/AmitanshuRay/swagger-codegen-server-api/blob/master/screenshots/put%20a%20server.png)
 #### Request
     PUT / HTTP/1.1
     Content-Type: application/json
