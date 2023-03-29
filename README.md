@@ -75,6 +75,7 @@ Change default port value in application.properties
     Keep-Alive: timeout=60
     Connection: keep-alive
 ### Get all servers
+![Screenshot](screenshots/get all servers.png)
 #### Request
     GET / HTTP/1.1
     User-Agent: PostmanRuntime/7.31.3
@@ -114,6 +115,7 @@ Change default port value in application.properties
     ]
 ### Get a server based on id
 **- When a server is found**
+![Screenshot](screenshots/get a server if exists.png)
 #### Request
     GET /1 HTTP/1.1
     User-Agent: PostmanRuntime/7.31.3
@@ -133,6 +135,7 @@ Change default port value in application.properties
     
     {"id":"1","name":"s1","language":"python","platform":null}
 **- When no server by that id is found**
+![Screenshot](screenshots/get a server when not exists.png)
 #### Request
     GET /4 HTTP/1.1
     User-Agent: PostmanRuntime/7.31.3
@@ -150,6 +153,7 @@ Change default port value in application.properties
     Connection: keep-alive
 ### Get a list of servers using name
 **- When server(s) with that name is found**
+![Screenshot](screenshots/get by name when found.png)
 #### Request
     GET /name/s2 HTTP/1.1
     User-Agent: PostmanRuntime/7.31.3
@@ -182,6 +186,7 @@ Change default port value in application.properties
       }
     ]
 **- When no server by name are found**
+![Screenshot](screenshots/get by name when not found.png)
 #### Request
     GET /name/s3 HTTP/1.1
     User-Agent: PostmanRuntime/7.31.3
@@ -200,6 +205,7 @@ Change default port value in application.properties
 
 ### Deleting a server by id
 **- When a server with the id is found**
+![Screenshot](screenshots/delete by id when found.png)
 #### Request
     DELETE /3 HTTP/1.1
     User-Agent: PostmanRuntime/7.31.3
@@ -216,6 +222,7 @@ Change default port value in application.properties
     Keep-Alive: timeout=60
     Connection: keep-alive
 **- When no server by that id is found**
+![Screenshot](screenshots/delete by id when not found.png)
 #### Request
     DELETE /4 HTTP/1.1
     User-Agent: PostmanRuntime/7.31.3
